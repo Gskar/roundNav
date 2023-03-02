@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Circle Nav</title>
+  </head>
+  <body>
+    <section class="nav-section">
+      <div class="container">
+        <div class="icon">
+          <div class="imgBx" id="imgBx-1" style="--i: 1" data-id="content1">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </div>
+          <div class="imgBx" id="imgBx-2" style="--i: 2" data-id="content2">
+            <i class="fa-solid fa-scale-unbalanced-flip"></i>
+          </div>
+          <div class="imgBx" id="imgBx-3" style="--i: 3" data-id="content3">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div class="imgBx" id="imgBx-4" style="--i: 4" data-id="content4">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+          </div>
+        </div>
+        <div class="content">
+          <div class="contentBx" id="contentBx-1">
+            <div class="card">
+              <div class="textBx">
+                <h2>
+                  Λογιστικός έλεγχος για τα οικονομικά μεγέθη της επιχείρησης
+                  σου.
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="contentBx" id="contentBx-2">
+            <div class="card">
+              <div class="textBx">
+                <h2>
+                  Νομική εκπροσώπηση σε όλες τις εταιρικές νομικές υποθέσεις που
+                  θα προκύψουν
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="contentBx" id="contentBx-3">
+            <div class="card">
+              <div class="textBx">
+                <h2>
+                  Υπηρεσίες μετάφρασης κατά τη διαδικασία της σύστασης της
+                  εταιρίας σου, αλλά και στο εμπορικό κομμάτι, κατα την
+                  επικοινωνία με πελάτες, συνεργάτες, προμηθευτές.
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="contentBx" id="contentBx-4">
+            <div class="card">
+              <div class="textBx">
+                <h2 id="content-description-4">
+                  Μείωσε την εταιρική σου φορολογία, με μεταφορά της έδρας της
+                  επιχείρησης στην αλλοδαπή και διατήρηση της Ελληνικής σε μορφή
+                  υποκαταστήματος.
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let imgBx = document.querySelectorAll(".imgBx");
+      let contentBx = document.querySelectorAll(".contentBx");
+
+      //   When mouse clicks
+      for (let i = 0; i < imgBx.length; i++) {
+        imgBx[i].addEventListener("click", () => {
+          document.querySelector(".active")?.classList.remove("active");
+          imgBx[i].classList.add("active");
+          if (imgBx[i].className === "imgBx active") {
+            for (let y = 0; y < contentBx.length; y++) {
+              document
+                .querySelector(".contentBx.active")
+                ?.classList.remove("active");
+              contentBx[i].classList.add("active");
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

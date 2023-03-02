@@ -1,0 +1,378 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #292f39;
+}
+
+.container {
+  position: relative;
+  /* width: 600px; */
+  width: 500px;
+  /* height: 600px; */
+  height: 500px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.imgBx {
+  background: #292f39;
+}
+
+.imgBx i {
+  transform: rotate(calc(360deg / 4 * var(--i)));
+  font-size: 50px;
+  color: #fff;
+  transition: 250ms linear;
+}
+
+.container .icon {
+  position: relative;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.container .icon .imgBx {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transform: 0.5s;
+  box-shadow: 0 0 0 35px #292f39;
+  transform: rotate(calc(360deg / 4 * var(--i)));
+  transform-origin: 287px;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 250ms linear;
+}
+
+.container .icon .imgBx.active,
+.container .icon .imgBx:hover {
+  box-shadow: 0 0 0 5px #ff5100;
+}
+
+.container .icon .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: rotate(calc(-360deg / 4 * var(--i)));
+  transition: 0.5s;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 50px;
+  border: 4px solid transparent;
+  border-top: 4px solid #ff5100;
+  border-bottom: 4px solid #ff5100;
+  border-radius: 50%;
+  animation: animate_01 15s linear infinite;
+  z-index: 101;
+  pointer-events: none;
+}
+
+@keyframes animate_01 {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.content::after {
+  content: "";
+  position: absolute;
+  inset: 100px;
+  border: 4px solid transparent;
+  border-left: 4px solid #ff5100;
+  border-right: 4px solid #ff5100;
+  border-radius: 50%;
+  animation: animate_02 15s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes animate_02 {
+  0% {
+    rotate: 360deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
+.container {
+  position: relative;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  inset: 150px;
+  border: 4px solid transparent;
+  border-top: 4px solid #ff5100;
+  border-bottom: 4px solid #ff5100;
+  border-radius: 50%;
+  animation: animate_01 7.5s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 200px;
+  border: 4px solid transparent;
+  border-left: 4px solid #ff5100;
+  border-right: 4px solid #ff5100;
+  border-radius: 50%;
+  animation: animate_02 7.5s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.contentBx {
+  position: absolute;
+  transform: scale(0);
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.contentBx.active {
+  transform: scale(1);
+  opacity: 1;
+  transition-delay: 0.5;
+  z-index: 10000;
+  width: 80%;
+}
+
+.contentBx .card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contentBx .card .imgBx {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contentBx .card .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contentBx .card .textBx {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contentBx .card .textBx h2 {
+  position: relative;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1em;
+  text-align: center;
+}
+
+.contentBx .card .textBx span {
+  font-size: 0.65em;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+/*1st Child  */
+.container .icon .imgBx:nth-child(1) {
+  overflow: visible;
+}
+
+.container .icon .imgBx:nth-child(1)::after {
+  content: "Ελεγκτική";
+  font-size: 24px;
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(calc(-360deg / 4 * var(--i)));
+  transition: 250ms linear;
+}
+
+.container .icon .imgBx.active:nth-child(1)::after {
+  left: -50%;
+  opacity: 1;
+}
+
+.container .icon .imgBx:nth-child(1):hover i,
+.container .icon .imgBx:nth-child(1).active i {
+  transform: scale(1.05) rotate(calc(360deg / 4 * var(--i)));
+}
+
+/*2nd Child  */
+.container .icon .imgBx:nth-child(2) {
+  overflow: visible;
+}
+
+.container .icon .imgBx:nth-child(2)::after {
+  content: "Νομική";
+  font-size: 24px;
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(calc(-360deg / 4 * var(--i)));
+  transition: 250ms linear;
+}
+
+.container .icon .imgBx.active:nth-child(2)::after {
+  left: -100%;
+  opacity: 1;
+}
+
+.container .icon .imgBx:nth-child(2):hover i,
+.container .icon .imgBx:nth-child(2).active i {
+  transform: scale(1.05) rotate(calc(-360deg / 4 * var(--i)));
+}
+
+/*3rd Child  */
+.container .icon .imgBx:nth-child(3) {
+  overflow: visible;
+}
+
+.container .icon .imgBx:nth-child(3)::after {
+  content: "Μεταφραστική";
+  font-size: 24px;
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(calc(-360deg / 4 * var(--i)));
+  transition: 250ms linear;
+}
+
+.container .icon .imgBx.active:nth-child(3)::after {
+  left: -50%;
+  opacity: 1;
+}
+
+.container .icon .imgBx:nth-child(3):hover i,
+.container .icon .imgBx:nth-child(3).active i {
+  transform: scale(1.05) rotate(calc(360deg / 4 * var(--i)));
+}
+
+/*4th Child  */
+.container .icon .imgBx:nth-child(4) {
+  overflow: visible;
+}
+
+.container .icon .imgBx:nth-child(4)::after {
+  content: "Λογιστική";
+  font-size: 24px;
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 250ms linear;
+}
+
+.container .icon .imgBx.active:nth-child(4)::after {
+  left: -100%;
+  opacity: 1;
+}
+
+.container .icon .imgBx:nth-child(4):hover i,
+.container .icon .imgBx:nth-child(4).active i {
+  transform: scale(1.05) rotate(calc(-360deg / 4 * var(--i)));
+}
+
+.container .icon .imgBx:nth-child(1)::before,
+.container .icon .imgBx:nth-child(2)::before,
+.container .icon .imgBx:nth-child(3)::before,
+.container .icon .imgBx:nth-child(4)::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: scale(0);
+  bottom: 0;
+  left: 0;
+  background: #f94f00;
+  transition: 250ms linear;
+}
+
+.container .icon .imgBx:nth-child(1):hover::before,
+.container .icon .imgBx:nth-child(2):hover::before,
+.container .icon .imgBx:nth-child(3):hover::before,
+.container .icon .imgBx:nth-child(4):hover::before {
+  transform: scale(1);
+}
+
+.container .icon .imgBx:nth-child(1):hover i,
+.container .icon .imgBx:nth-child(2):hover i,
+.container .icon .imgBx:nth-child(3):hover i,
+.container .icon .imgBx:nth-child(4):hover i {
+  color: #292f39;
+}
+
+.container .icon .imgBx:nth-child(1).active,
+.container .icon .imgBx:nth-child(2).active,
+.container .icon .imgBx:nth-child(3).active,
+.container .icon .imgBx:nth-child(4).active {
+  background: #f94f00;
+}
+
+.container .icon .imgBx:nth-child(1).active i,
+.container .icon .imgBx:nth-child(2).active i,
+.container .icon .imgBx:nth-child(3).active i,
+.container .icon .imgBx:nth-child(4).active i {
+  color: #292f39;
+}
